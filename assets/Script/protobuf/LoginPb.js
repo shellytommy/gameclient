@@ -10,39 +10,33 @@ var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.ut
 // Exported root namespace
 var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
 
-$root.loginpb = (function() {
+$root.LoginPb = (function() {
 
     /**
-     * Namespace loginpb.
-     * @exports loginpb
+     * Namespace LoginPb.
+     * @exports LoginPb
      * @namespace
      */
-    var loginpb = {};
+    var LoginPb = {};
 
-    loginpb.LoginReq = (function() {
+    LoginPb.SessionLose = (function() {
 
         /**
-         * Properties of a LoginReq.
-         * @memberof loginpb
-         * @interface ILoginReq
-         * @property {number|null} [loginType] LoginReq loginType
-         * @property {number|null} [userAccount] LoginReq userAccount
-         * @property {number|null} [userPassword] LoginReq userPassword
-         * @property {number|null} [createrId] LoginReq createrId
-         * @property {number|Long|null} [createTime] LoginReq createTime
-         * @property {string|null} [content] LoginReq content
-         * @property {number|null} [type] LoginReq type
+         * Properties of a SessionLose.
+         * @memberof LoginPb
+         * @interface ISessionLose
+         * @property {number|null} [status] SessionLose status
          */
 
         /**
-         * Constructs a new LoginReq.
-         * @memberof loginpb
-         * @classdesc Represents a LoginReq.
-         * @implements ILoginReq
+         * Constructs a new SessionLose.
+         * @memberof LoginPb
+         * @classdesc Represents a SessionLose.
+         * @implements ISessionLose
          * @constructor
-         * @param {loginpb.ILoginReq=} [properties] Properties to set
+         * @param {LoginPb.ISessionLose=} [properties] Properties to set
          */
-        function LoginReq(properties) {
+        function SessionLose(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -50,431 +44,75 @@ $root.loginpb = (function() {
         }
 
         /**
-         * LoginReq loginType.
-         * @member {number} loginType
-         * @memberof loginpb.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.loginType = 0;
-
-        /**
-         * LoginReq userAccount.
-         * @member {number} userAccount
-         * @memberof loginpb.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.userAccount = 0;
-
-        /**
-         * LoginReq userPassword.
-         * @member {number} userPassword
-         * @memberof loginpb.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.userPassword = 0;
-
-        /**
-         * LoginReq createrId.
-         * @member {number} createrId
-         * @memberof loginpb.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.createrId = 0;
-
-        /**
-         * LoginReq createTime.
-         * @member {number|Long} createTime
-         * @memberof loginpb.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.createTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-        /**
-         * LoginReq content.
-         * @member {string} content
-         * @memberof loginpb.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.content = "";
-
-        /**
-         * LoginReq type.
-         * @member {number} type
-         * @memberof loginpb.LoginReq
-         * @instance
-         */
-        LoginReq.prototype.type = 0;
-
-        /**
-         * Creates a new LoginReq instance using the specified properties.
-         * @function create
-         * @memberof loginpb.LoginReq
-         * @static
-         * @param {loginpb.ILoginReq=} [properties] Properties to set
-         * @returns {loginpb.LoginReq} LoginReq instance
-         */
-        LoginReq.create = function create(properties) {
-            return new LoginReq(properties);
-        };
-
-        /**
-         * Encodes the specified LoginReq message. Does not implicitly {@link loginpb.LoginReq.verify|verify} messages.
-         * @function encode
-         * @memberof loginpb.LoginReq
-         * @static
-         * @param {loginpb.ILoginReq} message LoginReq message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        LoginReq.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.loginType != null && message.hasOwnProperty("loginType"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.loginType);
-            if (message.userAccount != null && message.hasOwnProperty("userAccount"))
-                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.userAccount);
-            if (message.userPassword != null && message.hasOwnProperty("userPassword"))
-                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.userPassword);
-            if (message.createrId != null && message.hasOwnProperty("createrId"))
-                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.createrId);
-            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                writer.uint32(/* id 5, wireType 0 =*/40).int64(message.createTime);
-            if (message.content != null && message.hasOwnProperty("content"))
-                writer.uint32(/* id 6, wireType 2 =*/50).string(message.content);
-            if (message.type != null && message.hasOwnProperty("type"))
-                writer.uint32(/* id 7, wireType 0 =*/56).int32(message.type);
-            return writer;
-        };
-
-        /**
-         * Encodes the specified LoginReq message, length delimited. Does not implicitly {@link loginpb.LoginReq.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof loginpb.LoginReq
-         * @static
-         * @param {loginpb.ILoginReq} message LoginReq message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        LoginReq.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a LoginReq message from the specified reader or buffer.
-         * @function decode
-         * @memberof loginpb.LoginReq
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {loginpb.LoginReq} LoginReq
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        LoginReq.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.loginpb.LoginReq();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.loginType = reader.uint32();
-                    break;
-                case 2:
-                    message.userAccount = reader.uint32();
-                    break;
-                case 3:
-                    message.userPassword = reader.uint32();
-                    break;
-                case 4:
-                    message.createrId = reader.int32();
-                    break;
-                case 5:
-                    message.createTime = reader.int64();
-                    break;
-                case 6:
-                    message.content = reader.string();
-                    break;
-                case 7:
-                    message.type = reader.int32();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a LoginReq message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof loginpb.LoginReq
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {loginpb.LoginReq} LoginReq
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        LoginReq.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a LoginReq message.
-         * @function verify
-         * @memberof loginpb.LoginReq
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        LoginReq.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.loginType != null && message.hasOwnProperty("loginType"))
-                if (!$util.isInteger(message.loginType))
-                    return "loginType: integer expected";
-            if (message.userAccount != null && message.hasOwnProperty("userAccount"))
-                if (!$util.isInteger(message.userAccount))
-                    return "userAccount: integer expected";
-            if (message.userPassword != null && message.hasOwnProperty("userPassword"))
-                if (!$util.isInteger(message.userPassword))
-                    return "userPassword: integer expected";
-            if (message.createrId != null && message.hasOwnProperty("createrId"))
-                if (!$util.isInteger(message.createrId))
-                    return "createrId: integer expected";
-            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                if (!$util.isInteger(message.createTime) && !(message.createTime && $util.isInteger(message.createTime.low) && $util.isInteger(message.createTime.high)))
-                    return "createTime: integer|Long expected";
-            if (message.content != null && message.hasOwnProperty("content"))
-                if (!$util.isString(message.content))
-                    return "content: string expected";
-            if (message.type != null && message.hasOwnProperty("type"))
-                if (!$util.isInteger(message.type))
-                    return "type: integer expected";
-            return null;
-        };
-
-        /**
-         * Creates a LoginReq message from a plain object. Also converts values to their respective internal types.
-         * @function fromObject
-         * @memberof loginpb.LoginReq
-         * @static
-         * @param {Object.<string,*>} object Plain object
-         * @returns {loginpb.LoginReq} LoginReq
-         */
-        LoginReq.fromObject = function fromObject(object) {
-            if (object instanceof $root.loginpb.LoginReq)
-                return object;
-            var message = new $root.loginpb.LoginReq();
-            if (object.loginType != null)
-                message.loginType = object.loginType >>> 0;
-            if (object.userAccount != null)
-                message.userAccount = object.userAccount >>> 0;
-            if (object.userPassword != null)
-                message.userPassword = object.userPassword >>> 0;
-            if (object.createrId != null)
-                message.createrId = object.createrId | 0;
-            if (object.createTime != null)
-                if ($util.Long)
-                    (message.createTime = $util.Long.fromValue(object.createTime)).unsigned = false;
-                else if (typeof object.createTime === "string")
-                    message.createTime = parseInt(object.createTime, 10);
-                else if (typeof object.createTime === "number")
-                    message.createTime = object.createTime;
-                else if (typeof object.createTime === "object")
-                    message.createTime = new $util.LongBits(object.createTime.low >>> 0, object.createTime.high >>> 0).toNumber();
-            if (object.content != null)
-                message.content = String(object.content);
-            if (object.type != null)
-                message.type = object.type | 0;
-            return message;
-        };
-
-        /**
-         * Creates a plain object from a LoginReq message. Also converts values to other types if specified.
-         * @function toObject
-         * @memberof loginpb.LoginReq
-         * @static
-         * @param {loginpb.LoginReq} message LoginReq
-         * @param {$protobuf.IConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        LoginReq.toObject = function toObject(message, options) {
-            if (!options)
-                options = {};
-            var object = {};
-            if (options.defaults) {
-                object.loginType = 0;
-                object.userAccount = 0;
-                object.userPassword = 0;
-                object.createrId = 0;
-                if ($util.Long) {
-                    var long = new $util.Long(0, 0, false);
-                    object.createTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.createTime = options.longs === String ? "0" : 0;
-                object.content = "";
-                object.type = 0;
-            }
-            if (message.loginType != null && message.hasOwnProperty("loginType"))
-                object.loginType = message.loginType;
-            if (message.userAccount != null && message.hasOwnProperty("userAccount"))
-                object.userAccount = message.userAccount;
-            if (message.userPassword != null && message.hasOwnProperty("userPassword"))
-                object.userPassword = message.userPassword;
-            if (message.createrId != null && message.hasOwnProperty("createrId"))
-                object.createrId = message.createrId;
-            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                if (typeof message.createTime === "number")
-                    object.createTime = options.longs === String ? String(message.createTime) : message.createTime;
-                else
-                    object.createTime = options.longs === String ? $util.Long.prototype.toString.call(message.createTime) : options.longs === Number ? new $util.LongBits(message.createTime.low >>> 0, message.createTime.high >>> 0).toNumber() : message.createTime;
-            if (message.content != null && message.hasOwnProperty("content"))
-                object.content = message.content;
-            if (message.type != null && message.hasOwnProperty("type"))
-                object.type = message.type;
-            return object;
-        };
-
-        /**
-         * Converts this LoginReq to JSON.
-         * @function toJSON
-         * @memberof loginpb.LoginReq
-         * @instance
-         * @returns {Object.<string,*>} JSON object
-         */
-        LoginReq.prototype.toJSON = function toJSON() {
-            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-        };
-
-        return LoginReq;
-    })();
-
-    loginpb.LoginAck = (function() {
-
-        /**
-         * Properties of a LoginAck.
-         * @memberof loginpb
-         * @interface ILoginAck
-         * @property {number|null} [status] LoginAck status
-         * @property {string|null} [token] LoginAck token
-         * @property {number|null} [userStatus] LoginAck userStatus
-         */
-
-        /**
-         * Constructs a new LoginAck.
-         * @memberof loginpb
-         * @classdesc Represents a LoginAck.
-         * @implements ILoginAck
-         * @constructor
-         * @param {loginpb.ILoginAck=} [properties] Properties to set
-         */
-        function LoginAck(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * LoginAck status.
+         * SessionLose status.
          * @member {number} status
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @instance
          */
-        LoginAck.prototype.status = 0;
+        SessionLose.prototype.status = 0;
 
         /**
-         * LoginAck token.
-         * @member {string} token
-         * @memberof loginpb.LoginAck
-         * @instance
-         */
-        LoginAck.prototype.token = "";
-
-        /**
-         * LoginAck userStatus.
-         * @member {number} userStatus
-         * @memberof loginpb.LoginAck
-         * @instance
-         */
-        LoginAck.prototype.userStatus = 0;
-
-        /**
-         * Creates a new LoginAck instance using the specified properties.
+         * Creates a new SessionLose instance using the specified properties.
          * @function create
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @static
-         * @param {loginpb.ILoginAck=} [properties] Properties to set
-         * @returns {loginpb.LoginAck} LoginAck instance
+         * @param {LoginPb.ISessionLose=} [properties] Properties to set
+         * @returns {LoginPb.SessionLose} SessionLose instance
          */
-        LoginAck.create = function create(properties) {
-            return new LoginAck(properties);
+        SessionLose.create = function create(properties) {
+            return new SessionLose(properties);
         };
 
         /**
-         * Encodes the specified LoginAck message. Does not implicitly {@link loginpb.LoginAck.verify|verify} messages.
+         * Encodes the specified SessionLose message. Does not implicitly {@link LoginPb.SessionLose.verify|verify} messages.
          * @function encode
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @static
-         * @param {loginpb.ILoginAck} message LoginAck message or plain object to encode
+         * @param {LoginPb.ISessionLose} message SessionLose message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LoginAck.encode = function encode(message, writer) {
+        SessionLose.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.status != null && message.hasOwnProperty("status"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.status);
-            if (message.token != null && message.hasOwnProperty("token"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.token);
-            if (message.userStatus != null && message.hasOwnProperty("userStatus"))
-                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.userStatus);
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.status);
             return writer;
         };
 
         /**
-         * Encodes the specified LoginAck message, length delimited. Does not implicitly {@link loginpb.LoginAck.verify|verify} messages.
+         * Encodes the specified SessionLose message, length delimited. Does not implicitly {@link LoginPb.SessionLose.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @static
-         * @param {loginpb.ILoginAck} message LoginAck message or plain object to encode
+         * @param {LoginPb.ISessionLose} message SessionLose message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        LoginAck.encodeDelimited = function encodeDelimited(message, writer) {
+        SessionLose.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a LoginAck message from the specified reader or buffer.
+         * Decodes a SessionLose message from the specified reader or buffer.
          * @function decode
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {loginpb.LoginAck} LoginAck
+         * @returns {LoginPb.SessionLose} SessionLose
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LoginAck.decode = function decode(reader, length) {
+        SessionLose.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.loginpb.LoginAck();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginPb.SessionLose();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.status = reader.uint32();
-                    break;
-                case 2:
-                    message.token = reader.string();
-                    break;
-                case 3:
-                    message.userStatus = reader.uint32();
+                    message.status = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -485,107 +123,884 @@ $root.loginpb = (function() {
         };
 
         /**
-         * Decodes a LoginAck message from the specified reader or buffer, length delimited.
+         * Decodes a SessionLose message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {loginpb.LoginAck} LoginAck
+         * @returns {LoginPb.SessionLose} SessionLose
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        LoginAck.decodeDelimited = function decodeDelimited(reader) {
+        SessionLose.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a LoginAck message.
+         * Verifies a SessionLose message.
          * @function verify
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        LoginAck.verify = function verify(message) {
+        SessionLose.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.status != null && message.hasOwnProperty("status"))
                 if (!$util.isInteger(message.status))
                     return "status: integer expected";
-            if (message.token != null && message.hasOwnProperty("token"))
-                if (!$util.isString(message.token))
-                    return "token: string expected";
-            if (message.userStatus != null && message.hasOwnProperty("userStatus"))
-                if (!$util.isInteger(message.userStatus))
-                    return "userStatus: integer expected";
             return null;
         };
 
         /**
-         * Creates a LoginAck message from a plain object. Also converts values to their respective internal types.
+         * Creates a SessionLose message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {loginpb.LoginAck} LoginAck
+         * @returns {LoginPb.SessionLose} SessionLose
          */
-        LoginAck.fromObject = function fromObject(object) {
-            if (object instanceof $root.loginpb.LoginAck)
+        SessionLose.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginPb.SessionLose)
                 return object;
-            var message = new $root.loginpb.LoginAck();
+            var message = new $root.LoginPb.SessionLose();
             if (object.status != null)
-                message.status = object.status >>> 0;
-            if (object.token != null)
-                message.token = String(object.token);
-            if (object.userStatus != null)
-                message.userStatus = object.userStatus >>> 0;
+                message.status = object.status | 0;
             return message;
         };
 
         /**
-         * Creates a plain object from a LoginAck message. Also converts values to other types if specified.
+         * Creates a plain object from a SessionLose message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @static
-         * @param {loginpb.LoginAck} message LoginAck
+         * @param {LoginPb.SessionLose} message SessionLose
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        LoginAck.toObject = function toObject(message, options) {
+        SessionLose.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
-            if (options.defaults) {
+            if (options.defaults)
                 object.status = 0;
-                object.token = "";
-                object.userStatus = 0;
-            }
             if (message.status != null && message.hasOwnProperty("status"))
                 object.status = message.status;
-            if (message.token != null && message.hasOwnProperty("token"))
-                object.token = message.token;
-            if (message.userStatus != null && message.hasOwnProperty("userStatus"))
-                object.userStatus = message.userStatus;
             return object;
         };
 
         /**
-         * Converts this LoginAck to JSON.
+         * Converts this SessionLose to JSON.
          * @function toJSON
-         * @memberof loginpb.LoginAck
+         * @memberof LoginPb.SessionLose
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        LoginAck.prototype.toJSON = function toJSON() {
+        SessionLose.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return LoginAck;
+        return SessionLose;
     })();
 
-    return loginpb;
+    LoginPb.MsgC2SReqRegister = (function() {
+
+        /**
+         * Properties of a MsgC2SReqRegister.
+         * @memberof LoginPb
+         * @interface IMsgC2SReqRegister
+         * @property {string|null} [account] MsgC2SReqRegister account
+         * @property {string|null} [password] MsgC2SReqRegister password
+         */
+
+        /**
+         * Constructs a new MsgC2SReqRegister.
+         * @memberof LoginPb
+         * @classdesc Represents a MsgC2SReqRegister.
+         * @implements IMsgC2SReqRegister
+         * @constructor
+         * @param {LoginPb.IMsgC2SReqRegister=} [properties] Properties to set
+         */
+        function MsgC2SReqRegister(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * MsgC2SReqRegister account.
+         * @member {string} account
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @instance
+         */
+        MsgC2SReqRegister.prototype.account = "";
+
+        /**
+         * MsgC2SReqRegister password.
+         * @member {string} password
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @instance
+         */
+        MsgC2SReqRegister.prototype.password = "";
+
+        /**
+         * Creates a new MsgC2SReqRegister instance using the specified properties.
+         * @function create
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @static
+         * @param {LoginPb.IMsgC2SReqRegister=} [properties] Properties to set
+         * @returns {LoginPb.MsgC2SReqRegister} MsgC2SReqRegister instance
+         */
+        MsgC2SReqRegister.create = function create(properties) {
+            return new MsgC2SReqRegister(properties);
+        };
+
+        /**
+         * Encodes the specified MsgC2SReqRegister message. Does not implicitly {@link LoginPb.MsgC2SReqRegister.verify|verify} messages.
+         * @function encode
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @static
+         * @param {LoginPb.IMsgC2SReqRegister} message MsgC2SReqRegister message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MsgC2SReqRegister.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.account != null && message.hasOwnProperty("account"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.account);
+            if (message.password != null && message.hasOwnProperty("password"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.password);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified MsgC2SReqRegister message, length delimited. Does not implicitly {@link LoginPb.MsgC2SReqRegister.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @static
+         * @param {LoginPb.IMsgC2SReqRegister} message MsgC2SReqRegister message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MsgC2SReqRegister.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a MsgC2SReqRegister message from the specified reader or buffer.
+         * @function decode
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {LoginPb.MsgC2SReqRegister} MsgC2SReqRegister
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MsgC2SReqRegister.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginPb.MsgC2SReqRegister();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.account = reader.string();
+                    break;
+                case 2:
+                    message.password = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a MsgC2SReqRegister message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {LoginPb.MsgC2SReqRegister} MsgC2SReqRegister
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MsgC2SReqRegister.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a MsgC2SReqRegister message.
+         * @function verify
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        MsgC2SReqRegister.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.account != null && message.hasOwnProperty("account"))
+                if (!$util.isString(message.account))
+                    return "account: string expected";
+            if (message.password != null && message.hasOwnProperty("password"))
+                if (!$util.isString(message.password))
+                    return "password: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a MsgC2SReqRegister message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {LoginPb.MsgC2SReqRegister} MsgC2SReqRegister
+         */
+        MsgC2SReqRegister.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginPb.MsgC2SReqRegister)
+                return object;
+            var message = new $root.LoginPb.MsgC2SReqRegister();
+            if (object.account != null)
+                message.account = String(object.account);
+            if (object.password != null)
+                message.password = String(object.password);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a MsgC2SReqRegister message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @static
+         * @param {LoginPb.MsgC2SReqRegister} message MsgC2SReqRegister
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        MsgC2SReqRegister.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.account = "";
+                object.password = "";
+            }
+            if (message.account != null && message.hasOwnProperty("account"))
+                object.account = message.account;
+            if (message.password != null && message.hasOwnProperty("password"))
+                object.password = message.password;
+            return object;
+        };
+
+        /**
+         * Converts this MsgC2SReqRegister to JSON.
+         * @function toJSON
+         * @memberof LoginPb.MsgC2SReqRegister
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        MsgC2SReqRegister.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return MsgC2SReqRegister;
+    })();
+
+    LoginPb.MsgS2CAckRegister = (function() {
+
+        /**
+         * Properties of a MsgS2CAckRegister.
+         * @memberof LoginPb
+         * @interface IMsgS2CAckRegister
+         * @property {number|null} [status] MsgS2CAckRegister status
+         */
+
+        /**
+         * Constructs a new MsgS2CAckRegister.
+         * @memberof LoginPb
+         * @classdesc Represents a MsgS2CAckRegister.
+         * @implements IMsgS2CAckRegister
+         * @constructor
+         * @param {LoginPb.IMsgS2CAckRegister=} [properties] Properties to set
+         */
+        function MsgS2CAckRegister(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * MsgS2CAckRegister status.
+         * @member {number} status
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @instance
+         */
+        MsgS2CAckRegister.prototype.status = 0;
+
+        /**
+         * Creates a new MsgS2CAckRegister instance using the specified properties.
+         * @function create
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @static
+         * @param {LoginPb.IMsgS2CAckRegister=} [properties] Properties to set
+         * @returns {LoginPb.MsgS2CAckRegister} MsgS2CAckRegister instance
+         */
+        MsgS2CAckRegister.create = function create(properties) {
+            return new MsgS2CAckRegister(properties);
+        };
+
+        /**
+         * Encodes the specified MsgS2CAckRegister message. Does not implicitly {@link LoginPb.MsgS2CAckRegister.verify|verify} messages.
+         * @function encode
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @static
+         * @param {LoginPb.IMsgS2CAckRegister} message MsgS2CAckRegister message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MsgS2CAckRegister.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && message.hasOwnProperty("status"))
+                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.status);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified MsgS2CAckRegister message, length delimited. Does not implicitly {@link LoginPb.MsgS2CAckRegister.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @static
+         * @param {LoginPb.IMsgS2CAckRegister} message MsgS2CAckRegister message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MsgS2CAckRegister.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a MsgS2CAckRegister message from the specified reader or buffer.
+         * @function decode
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {LoginPb.MsgS2CAckRegister} MsgS2CAckRegister
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MsgS2CAckRegister.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginPb.MsgS2CAckRegister();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.status = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a MsgS2CAckRegister message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {LoginPb.MsgS2CAckRegister} MsgS2CAckRegister
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MsgS2CAckRegister.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a MsgS2CAckRegister message.
+         * @function verify
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        MsgS2CAckRegister.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status"))
+                if (!$util.isInteger(message.status))
+                    return "status: integer expected";
+            return null;
+        };
+
+        /**
+         * Creates a MsgS2CAckRegister message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {LoginPb.MsgS2CAckRegister} MsgS2CAckRegister
+         */
+        MsgS2CAckRegister.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginPb.MsgS2CAckRegister)
+                return object;
+            var message = new $root.LoginPb.MsgS2CAckRegister();
+            if (object.status != null)
+                message.status = object.status | 0;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a MsgS2CAckRegister message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @static
+         * @param {LoginPb.MsgS2CAckRegister} message MsgS2CAckRegister
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        MsgS2CAckRegister.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = 0;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = message.status;
+            return object;
+        };
+
+        /**
+         * Converts this MsgS2CAckRegister to JSON.
+         * @function toJSON
+         * @memberof LoginPb.MsgS2CAckRegister
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        MsgS2CAckRegister.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return MsgS2CAckRegister;
+    })();
+
+    LoginPb.MsgC2SReqLogin = (function() {
+
+        /**
+         * Properties of a MsgC2SReqLogin.
+         * @memberof LoginPb
+         * @interface IMsgC2SReqLogin
+         * @property {string|null} [uid] MsgC2SReqLogin uid
+         * @property {string|null} [channelId] MsgC2SReqLogin channelId
+         */
+
+        /**
+         * Constructs a new MsgC2SReqLogin.
+         * @memberof LoginPb
+         * @classdesc Represents a MsgC2SReqLogin.
+         * @implements IMsgC2SReqLogin
+         * @constructor
+         * @param {LoginPb.IMsgC2SReqLogin=} [properties] Properties to set
+         */
+        function MsgC2SReqLogin(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * MsgC2SReqLogin uid.
+         * @member {string} uid
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @instance
+         */
+        MsgC2SReqLogin.prototype.uid = "";
+
+        /**
+         * MsgC2SReqLogin channelId.
+         * @member {string} channelId
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @instance
+         */
+        MsgC2SReqLogin.prototype.channelId = "";
+
+        /**
+         * Creates a new MsgC2SReqLogin instance using the specified properties.
+         * @function create
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @static
+         * @param {LoginPb.IMsgC2SReqLogin=} [properties] Properties to set
+         * @returns {LoginPb.MsgC2SReqLogin} MsgC2SReqLogin instance
+         */
+        MsgC2SReqLogin.create = function create(properties) {
+            return new MsgC2SReqLogin(properties);
+        };
+
+        /**
+         * Encodes the specified MsgC2SReqLogin message. Does not implicitly {@link LoginPb.MsgC2SReqLogin.verify|verify} messages.
+         * @function encode
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @static
+         * @param {LoginPb.IMsgC2SReqLogin} message MsgC2SReqLogin message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MsgC2SReqLogin.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.uid != null && message.hasOwnProperty("uid"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.uid);
+            if (message.channelId != null && message.hasOwnProperty("channelId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.channelId);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified MsgC2SReqLogin message, length delimited. Does not implicitly {@link LoginPb.MsgC2SReqLogin.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @static
+         * @param {LoginPb.IMsgC2SReqLogin} message MsgC2SReqLogin message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MsgC2SReqLogin.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a MsgC2SReqLogin message from the specified reader or buffer.
+         * @function decode
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {LoginPb.MsgC2SReqLogin} MsgC2SReqLogin
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MsgC2SReqLogin.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginPb.MsgC2SReqLogin();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.uid = reader.string();
+                    break;
+                case 2:
+                    message.channelId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a MsgC2SReqLogin message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {LoginPb.MsgC2SReqLogin} MsgC2SReqLogin
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MsgC2SReqLogin.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a MsgC2SReqLogin message.
+         * @function verify
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        MsgC2SReqLogin.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.uid != null && message.hasOwnProperty("uid"))
+                if (!$util.isString(message.uid))
+                    return "uid: string expected";
+            if (message.channelId != null && message.hasOwnProperty("channelId"))
+                if (!$util.isString(message.channelId))
+                    return "channelId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a MsgC2SReqLogin message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {LoginPb.MsgC2SReqLogin} MsgC2SReqLogin
+         */
+        MsgC2SReqLogin.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginPb.MsgC2SReqLogin)
+                return object;
+            var message = new $root.LoginPb.MsgC2SReqLogin();
+            if (object.uid != null)
+                message.uid = String(object.uid);
+            if (object.channelId != null)
+                message.channelId = String(object.channelId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a MsgC2SReqLogin message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @static
+         * @param {LoginPb.MsgC2SReqLogin} message MsgC2SReqLogin
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        MsgC2SReqLogin.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.uid = "";
+                object.channelId = "";
+            }
+            if (message.uid != null && message.hasOwnProperty("uid"))
+                object.uid = message.uid;
+            if (message.channelId != null && message.hasOwnProperty("channelId"))
+                object.channelId = message.channelId;
+            return object;
+        };
+
+        /**
+         * Converts this MsgC2SReqLogin to JSON.
+         * @function toJSON
+         * @memberof LoginPb.MsgC2SReqLogin
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        MsgC2SReqLogin.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return MsgC2SReqLogin;
+    })();
+
+    LoginPb.MsgS2CAckLogin = (function() {
+
+        /**
+         * Properties of a MsgS2CAckLogin.
+         * @memberof LoginPb
+         * @interface IMsgS2CAckLogin
+         * @property {string|null} [token] MsgS2CAckLogin token
+         */
+
+        /**
+         * Constructs a new MsgS2CAckLogin.
+         * @memberof LoginPb
+         * @classdesc Represents a MsgS2CAckLogin.
+         * @implements IMsgS2CAckLogin
+         * @constructor
+         * @param {LoginPb.IMsgS2CAckLogin=} [properties] Properties to set
+         */
+        function MsgS2CAckLogin(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * MsgS2CAckLogin token.
+         * @member {string} token
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @instance
+         */
+        MsgS2CAckLogin.prototype.token = "";
+
+        /**
+         * Creates a new MsgS2CAckLogin instance using the specified properties.
+         * @function create
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @static
+         * @param {LoginPb.IMsgS2CAckLogin=} [properties] Properties to set
+         * @returns {LoginPb.MsgS2CAckLogin} MsgS2CAckLogin instance
+         */
+        MsgS2CAckLogin.create = function create(properties) {
+            return new MsgS2CAckLogin(properties);
+        };
+
+        /**
+         * Encodes the specified MsgS2CAckLogin message. Does not implicitly {@link LoginPb.MsgS2CAckLogin.verify|verify} messages.
+         * @function encode
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @static
+         * @param {LoginPb.IMsgS2CAckLogin} message MsgS2CAckLogin message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MsgS2CAckLogin.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.token != null && message.hasOwnProperty("token"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.token);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified MsgS2CAckLogin message, length delimited. Does not implicitly {@link LoginPb.MsgS2CAckLogin.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @static
+         * @param {LoginPb.IMsgS2CAckLogin} message MsgS2CAckLogin message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        MsgS2CAckLogin.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a MsgS2CAckLogin message from the specified reader or buffer.
+         * @function decode
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {LoginPb.MsgS2CAckLogin} MsgS2CAckLogin
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MsgS2CAckLogin.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.LoginPb.MsgS2CAckLogin();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.token = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a MsgS2CAckLogin message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {LoginPb.MsgS2CAckLogin} MsgS2CAckLogin
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        MsgS2CAckLogin.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a MsgS2CAckLogin message.
+         * @function verify
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        MsgS2CAckLogin.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.token != null && message.hasOwnProperty("token"))
+                if (!$util.isString(message.token))
+                    return "token: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a MsgS2CAckLogin message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {LoginPb.MsgS2CAckLogin} MsgS2CAckLogin
+         */
+        MsgS2CAckLogin.fromObject = function fromObject(object) {
+            if (object instanceof $root.LoginPb.MsgS2CAckLogin)
+                return object;
+            var message = new $root.LoginPb.MsgS2CAckLogin();
+            if (object.token != null)
+                message.token = String(object.token);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a MsgS2CAckLogin message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @static
+         * @param {LoginPb.MsgS2CAckLogin} message MsgS2CAckLogin
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        MsgS2CAckLogin.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.token = "";
+            if (message.token != null && message.hasOwnProperty("token"))
+                object.token = message.token;
+            return object;
+        };
+
+        /**
+         * Converts this MsgS2CAckLogin to JSON.
+         * @function toJSON
+         * @memberof LoginPb.MsgS2CAckLogin
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        MsgS2CAckLogin.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return MsgS2CAckLogin;
+    })();
+
+    return LoginPb;
 })();
 
 module.exports = $root;

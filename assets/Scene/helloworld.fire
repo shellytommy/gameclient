@@ -580,6 +580,10 @@
       "__id__": 11
     },
     "text": "Hello, World!",
+    "bufferList": [],
+    "byteOffset": 0,
+    "length": 0,
+    "socket": null,
     "_id": "dcGJ+cSA5D7qNtScKfLjJJ"
   },
   {
